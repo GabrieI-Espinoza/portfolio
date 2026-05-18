@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import { SECTIONS } from "./data";
-import Background from "./components/Background";
 import Terminal from "./components/Terminal";
 import AboutView from "./sections/AboutView";
 import ProjectsView from "./sections/ProjectsView";
@@ -50,8 +49,6 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden selection:bg-neutral-200 selection:text-neutral-900 text-neutral-900">
-      <Background />
-
       {/* Header / Navigation */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
