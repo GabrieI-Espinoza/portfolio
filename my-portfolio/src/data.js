@@ -64,6 +64,7 @@ export const PROJECTS = [
       "Prometheus",
       "Pytest",
       "GitHub",
+      "GitHub Actions",
     ],
     github: "https://github.com/GabrieI-Espinoza/Limitr",
   },
@@ -76,7 +77,7 @@ export const PROJECTS = [
   {
     id: 3,
     title: "Tempo",
-    techStack: ["FastAPI", "PostgreSQL", "Docker", "GitHub", "Pytest"],
+    techStack: ["FastAPI", "PostgreSQL", "Docker", "GitHub", "GitHub Actions", "Pytest"],
     github: "https://github.com/GabrieI-Espinoza/Tempo",
   },
   {
