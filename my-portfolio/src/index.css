@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* Design tokens, modify to re-theme the entire site */
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #171717;
+  --color-border: #e5e5e5;
+  --color-border-subtle: #f5f5f5;
+  --color-accent-warm: #b45309;
+  --color-accent-cool: #0369a1;
+}
+
+/* Base styles applied to all pages */
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Shared component styles */
+@layer components {
+  .section-heading {
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-neutral-900;
+  }
+
+  /* Fades edges of the skills marquee */
+  .marquee-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+/* Marquee keyframes, rows are duplicated so the loop appears seamless */
+@keyframes loop-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes loop-scroll-reverse {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* marquee utilities (used in SkillsView) */
+.animate-loop-scroll {
+  animation: loop-scroll 45s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.animate-loop-scroll-reverse {
+  animation: loop-scroll-reverse 45s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Pause marquee on hover for readability */
+.group:hover .animate-loop-scroll,
+.group:hover .animate-loop-scroll-reverse {
+  animation-play-state: paused;
+}
