@@ -1,5 +1,9 @@
 export const ABOUT = {
-  bio: "Coming Soon",
+  bio: `I’m a Software Engineer and Computer Science graduate student at George Mason University. My background spans backend engineering, systems programming, and security, and I’m currently expanding deeper into AI/ML and cloud technologies.
+
+I’m especially interested in software that brings AI into real-world products and workflows. I enjoy building projects from the ground up, improving them over time, and thinking through how systems can become more efficient, secure, and useful.
+
+I’m driven by challenging technical problems, continuous learning, and meaningful collaboration. Whether working independently or as part of a team, I aim to turn complex ideas into meaningful solutions that make a difference.`,
 };
 
 export const SKILLS = [
@@ -77,7 +81,14 @@ export const PROJECTS = [
   {
     id: 3,
     title: "Tempo",
-    techStack: ["FastAPI", "PostgreSQL", "Docker", "GitHub", "GitHub Actions", "Pytest"],
+    techStack: [
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "GitHub",
+      "GitHub Actions",
+      "Pytest",
+    ],
     github: "https://github.com/GabrieI-Espinoza/Tempo",
   },
   {
