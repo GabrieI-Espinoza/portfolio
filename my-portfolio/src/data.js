@@ -77,6 +77,7 @@ export const PROJECTS = [
     title: "Custom Operating System Kernel",
     techStack: ["C", "Git", "Linux"],
     github: "https://github.com/GabrieI-Espinoza/custom-kernel",
+    note: "Private repo — access available upon request.",
   },
   {
     id: 3,
