@@ -2,9 +2,9 @@ import { PROJECTS } from "../data";
 import { getIconPath } from "../utils";
 
 const ProjectCard = ({ project }) => {
-  const Wrapper = project.github ? 'a' : 'div';
+  const Wrapper = project.github ? "a" : "div";
   const linkProps = project.github
-    ? { href: project.github, target: '_blank', rel: 'noopener noreferrer' }
+    ? { href: project.github, target: "_blank", rel: "noopener noreferrer" }
     : {};
 
   return (
@@ -14,7 +14,9 @@ const ProjectCard = ({ project }) => {
     >
       {/* Title + GitHub icon */}
       <div className="flex items-start justify-between gap-3 mb-3">
-        <h3 className="text-base font-semibold text-neutral-900">{project.title}</h3>
+        <h3 className="text-base font-semibold text-neutral-900">
+          {project.title}
+        </h3>
         {project.github && (
           <img
             src="/icons/github.svg"
@@ -24,11 +26,22 @@ const ProjectCard = ({ project }) => {
         )}
       </div>
 
+      {/* Optional note (private repo disclaimer) */}
+      {project.note && (
+        <p className="text-[11px] text-neutral-400 italic mb-3">
+          {project.note}
+        </p>
+      )}
+
       {/* Tech stack */}
       <div className="flex flex-wrap gap-x-3 gap-y-1.5">
         {project.techStack.map((tech) => (
           <div key={tech} className="flex items-center gap-1">
-            <img src={getIconPath(tech)} alt={tech} className="w-3 h-3 object-contain opacity-70" />
+            <img
+              src={getIconPath(tech)}
+              alt={tech}
+              className="w-3 h-3 object-contain opacity-70"
+            />
             <span className="text-[11px] text-neutral-500">{tech}</span>
           </div>
         ))}
