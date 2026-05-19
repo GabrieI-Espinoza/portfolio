@@ -52,7 +52,7 @@ const ContactLink = ({ icon, label, sub, href, external }) => (
 );
 
 const ContactView = () => (
-  <div>
+  <div className="text-center">
     <h2 className="section-heading mb-3">
       Get in Touch<span className="text-accent-warm">.</span>
     </h2>
@@ -60,7 +60,7 @@ const ContactView = () => (
       Currently open to new opportunities. Feel free to reach out.
     </p>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-1 max-w-2xl">
+    <div className="inline-grid grid-cols-1 sm:grid-cols-2 gap-x-24 gap-y-1 text-left">
       <ContactLink
         icon={<MailIcon />}
         label="Email"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { SECTIONS } from "./data";
+import { SECTIONS, CONTACT } from "./data";
 import Terminal from "./components/Terminal";
 import AboutView from "./sections/AboutView";
 import ProjectsView from "./sections/ProjectsView";
@@ -26,21 +26,31 @@ function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Highlight active nav link via IntersectionObserver */
+  /* Highlight nav link for the most visible section */
   useEffect(() => {
     const sections = document.querySelectorAll("[data-section]");
     if (!sections.length) return;
 
+    const ratios = new Map();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            if (id) setActiveSection(id);
+          ratios.set(entry.target.id, entry.intersectionRatio);
+        });
+
+        let best = null;
+        let highest = 0;
+        ratios.forEach((ratio, id) => {
+          if (ratio > highest) {
+            highest = ratio;
+            best = id;
           }
         });
+
+        if (best) setActiveSection(best);
       },
-      { threshold: 0.3 },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
 
     sections.forEach((s) => observer.observe(s));
@@ -193,8 +203,12 @@ function App() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-border">
         <div className="max-w-5xl mx-auto px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <span>Gabriel Espinoza</span>
-          <span>&copy; {new Date().getFullYear()}</span>
+          <span>&copy; {new Date().getFullYear()} Gabriel Espinoza. All rights reserved.</span>
+          <div className="flex gap-4">
+            <a href={`mailto:${CONTACT.links.email}`} className="hover:text-neutral-700 transition-colors">Email</a>
+            <a href={CONTACT.links.github} target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition-colors">GitHub</a>
+            <a href={CONTACT.links.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-neutral-700 transition-colors">LinkedIn</a>
+          </div>
         </div>
       </footer>
     </div>
