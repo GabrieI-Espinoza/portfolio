@@ -41,7 +41,7 @@ export const EDUCATION = [
   {
     school: "George Mason University",
     degree: "M.S. in Computer Science",
-    period: "Aug 2025 - Dec 2027 (Expected)",
+    period: "Jan 2026 - Dec 2027 (Expected)",
   },
   {
     school: "George Mason University",
