@@ -99,8 +99,6 @@ const ContactView = () => (
         external
       />
     </div>
-
-    <p className="mt-8 text-xs text-neutral-500">Based in Fairfax, VA</p>
   </div>
 );
 
