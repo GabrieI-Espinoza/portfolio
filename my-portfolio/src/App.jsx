@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import { SECTIONS, CONTACT } from "./data";
 import Terminal from "./components/Terminal";
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden selection:bg-neutral-200 selection:text-neutral-900 text-neutral-900">
+      <Analytics />
       {/* Header / Navigation */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
